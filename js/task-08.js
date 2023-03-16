@@ -1,21 +1,23 @@
-const formEl = document.querySelector("form");
-const emailInputEl = document.querySelector("email");
-const passwordInputEl = document.querySelector("password");
-const submitBtnEl = document.querySelector("submit");
+const formEl = document.querySelector('form');
+const emailInputEl = formEl.querySelector('[name="email"]');
+const passwordInputEl = formEl.querySelector(`[name="password"]`);
+const submitBtnEl = document.querySelector('submit');
 
+formEl.addEventListener('submit', handleSubmit);
 
-formEl.addEventListener("submit", handleSubmit);
+function handleSubmit(event) {
+  event.preventDefault();
+  const {
+    elements: { email, password },
+  } = event.currentTarget;
 
-function handleSubmit(event){
-    event.preventDefault();
-    const {
-        elements: { email, password }
-      } = event.currentTarget;
-
-      if (email.value === "" || password.value === "") {
-        return alert("Please fill in all the fields!");
-      };
-      const formData = {email: email.value, password: password.value,};
-      console.log(formData);
-      event.currentTarget.reset()
+  if (email.value === '' || password.value === '') {
+    return alert('Please fill in all the fields!');
+  }
+  const formData = {
+    email: emailInputEl.value,
+    password: passwordInputEl.value,
+  };
+  console.log(formData);
+  event.currentTarget.reset();
 }

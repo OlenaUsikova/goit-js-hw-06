@@ -12,14 +12,12 @@ const images = [
     alt: 'Group of Horses Running',
   },
 ];
-const newGallery = document.querySelector('.gallery')
+const newGallery = document.querySelector('.gallery');
 
 let backup = ``;
 
 images.forEach(img => {
-  backup += `<li><img  class="image" src="${img.url}" alt="${img.alt}" /></li>`
+  backup += `<li><img  class="image" src="${img.url}" alt="${img.alt}" /></li>`;
 });
 
-newGallery.insertAdjacentHTML('beforeend', backup)
-
-
+newGallery.insertAdjacentHTML('beforeend', backup);
